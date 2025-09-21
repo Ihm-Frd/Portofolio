@@ -2,6 +2,7 @@
 "use client";
 
 import React, { useState } from "react";
+import { ReactElement } from "react";
 import { FaChevronRight } from "react-icons/fa";
 import ProfileCard from "../ProfileCard/ProfileCard";
 import RotatingText from "../RotatingText/RotatingText";
@@ -19,7 +20,7 @@ const socialLinks = [
   { node: <SiLinkedin size={42} color="#0A66C2" />, title: "GitHub", href: "https://www.linkedin.com/in/mohammad-ilham-firdaus-217625207?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app " },
 ];
 
-export default function About(): JSX.Element {
+export default function About(): ReactElement {
   const [imgHovered, setImgHovered] = useState(false);
 
   return (
@@ -29,7 +30,6 @@ export default function About(): JSX.Element {
           <div className="flex-1 flex lg:justify-end justify-center items-center lg:pr-50">
             <div className="group relative pl-14 pt-10" onMouseEnter={() => setImgHovered(true)} onMouseLeave={() => setImgHovered(false)}>
               <ProfileCard
-                className=""
                 name="M.Ilham Firdaus"
                 title="FullStack Developer"
                 handle="My Profile"
@@ -40,6 +40,9 @@ export default function About(): JSX.Element {
                 enableTilt={true}
                 enableMobileTilt={false}
                 onContactClick={() => console.log('Contact clicked')}
+                behindGradient={undefined}   // biar fallback jalan
+                innerGradient={undefined}    // biar fallback jalan
+                miniAvatarUrl={undefined} 
               />
               <img
               />

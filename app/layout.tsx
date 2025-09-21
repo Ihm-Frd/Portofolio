@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./components/Pages/NavbarCss.css";
 import "./globals.css";
-import LenisProvider from "./components/LenisProvider/LenisProvider";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -28,10 +27,8 @@ export default function RootLayout({
     <html lang="en" className="scroll-smooth">
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        <LenisProvider> 
+      > 
         {children}
-        </LenisProvider> 
       </body>
     </html>
   );

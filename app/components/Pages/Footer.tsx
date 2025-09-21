@@ -2,6 +2,7 @@
 "use client";
 
 import React from "react";
+import { ReactElement } from "react";
 import {
   FaChevronCircleRight,
   FaPhone,
@@ -16,7 +17,7 @@ import {
 } from "react-icons/fa";
 import { motion } from "framer-motion";
 
-export default function Footer(): JSX.Element {
+export default function Footer(): ReactElement {
   return (
     <footer className="bg-[#000] text-gray-100 py-8">
       <div className="w-screen mx-auto px-6 md:px-8">

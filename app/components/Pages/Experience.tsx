@@ -1,23 +1,46 @@
+// "use client";
+// import { useEffect, useState } from "react";
+// import { motion } from "framer-motion";
+// import { FaBriefcase, FaArrowLeft, FaAngleUp,  } from "react-icons/fa";
+// import Particles from "../Particles/Particles";
+
+
+// type ExperienceItem = {
+//   title: string;
+//   role: string;
+//   period: string;
+// };
+
+// const experiences: ExperienceItem[] = [
+//   { title: "Self Employed", role: "Entry Level Full Stack Simple Web Developer", period: "Jun 2024 - To Day" },
+//   { title: "PT Pro Gemilang", role: "Marketing | IT Staff Network", period: "Feb 2024 - Aug 2024" },
+//   { title: "Mobile Credit Agent", role: "Administartor | Server Manajemen", period: "Jan 2023 - Aug 2023" },
+//   { title: "PT Grand Surya Techno", role: "Car Carpet Production Operator", period: "Oct 2021 - Nov 2022" },
+// ];
+
+// export default function Experience() {
+//   const [showScroll, setShowScroll] = useState(false);
+
+//   useEffect(() => {
+//     const toggleScroll = () => {
+//       setShowScroll(window.scrollY > 60);
+//     };
+//     window.addEventListener("scroll", toggleScroll);
+//     return () => window.removeEventListener("scroll", toggleScroll);
+//   }, []);
+
+
 "use client";
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
-import { FaBriefcase, FaArrowLeft, FaAngleUp,  } from "react-icons/fa";
+import { FaBriefcase, FaArrowLeft, FaAngleUp } from "react-icons/fa";
 import Particles from "../Particles/Particles";
-import ScrollReveal from "scrollreveal";
-
 
 type ExperienceItem = {
   title: string;
   role: string;
   period: string;
 };
-
-ScrollReveal().reveal('.box', {
-  origin: 'top',
-  distance: '80px',
-  duration: 1000,
-  reset: true
-});
 
 const experiences: ExperienceItem[] = [
   { title: "Self Employed", role: "Entry Level Full Stack Simple Web Developer", period: "Jun 2024 - To Day" },
@@ -31,12 +54,21 @@ export default function Experience() {
 
   useEffect(() => {
     const toggleScroll = () => {
-      setShowScroll(window.scrollY > 60);
+      if (typeof window !== "undefined") {
+        setShowScroll(window.scrollY > 60);
+      }
     };
-    window.addEventListener("scroll", toggleScroll);
-    return () => window.removeEventListener("scroll", toggleScroll);
-  }, []);
 
+    if (typeof window !== "undefined") {
+      window.addEventListener("scroll", toggleScroll);
+    }
+
+    return () => {
+      if (typeof window !== "undefined") {
+        window.removeEventListener("scroll", toggleScroll);
+      }
+    };
+  }, []);
   return (
     <section id="experience" className="relative overflow-hidden min-h-screen px-6 md:px-16 py-12">
     <div className="">
@@ -74,7 +106,7 @@ export default function Experience() {
             >
               {/* Circle */}
               <div
-                className={`absolute top-5 w-6 h-6 rounded-full border-4 border-white bg-white z-10 flex items-center justify-center text-indigo-900 font-bold text-sm
+                className={`absolute top-5 w-6 h-6 rounded-full border-4 border-white bg-[#fff] z-10 flex items-center justify-center text-indigo-900 font-bold text-sm
                 ${isLeft ? "-right-3" : "-left-3"}`}
               >
                 <FaBriefcase />

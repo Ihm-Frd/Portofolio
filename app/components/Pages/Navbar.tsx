@@ -2,7 +2,6 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
-import SmoothLink from "../SmoothLink/SmoothLink";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false); // untuk hamburger menu
@@ -76,17 +75,17 @@ export default function Navbar() {
             className="block absolute right-4 lg:hidden"
           >
             <span
-              className={`my-2 block h-[2px] w-[30px] bg-black dark:bg-white transition duration-300 origin-top-left ${
+              className={`my-2 block h-[2px] w-[30px] bg-black dark:bg-[#fff] transition duration-300 origin-top-left ${
                 isOpen ? "rotate-45" : ""
               }`}
             />
             <span
-              className={`my-2 block h-[2px] w-[30px] bg-black dark:bg-white ${
+              className={`my-2 block h-[2px] w-[30px] bg-black dark:bg-[#fff] ${
                 isOpen ? "scale-0" : "scale-100"
               }`}
             />
             <span
-              className={`my-2 block h-[2px] w-[30px] bg-black dark:bg-white transition duration-300 origin-bottom-left ${
+              className={`my-2 block h-[2px] w-[30px] bg-black dark:bg-[#fff] transition duration-300 origin-bottom-left ${
                 isOpen ? "-rotate-45" : ""
               }`}
             />
